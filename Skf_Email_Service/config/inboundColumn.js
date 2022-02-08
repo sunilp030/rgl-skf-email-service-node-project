@@ -1,0 +1,27 @@
+const inboundColumn = [
+    "IPIVNR",
+    "IPRGRN",
+    "IPDTIV",
+    "IPWHID",
+    "IPCUID",
+    "IPDSGN",
+    "IPPCID",
+    "IPCMFG",
+    "IPILQS",
+    "IPNPSU",
+    "IPTTXT",
+    "IVLRNO",
+    "IVVHNO",
+    "IVRPNO",
+    "IPGTOT",
+    "IPITOT",
+    "IPIVLV",
+    "IPWGHT",
+    "IPGWEI",
+    "IPNWEI",
+    "IPLCST",
+    "IVGWGT",
+    "IPCYTX",
+]
+module.exports = inboundColumn;
+
