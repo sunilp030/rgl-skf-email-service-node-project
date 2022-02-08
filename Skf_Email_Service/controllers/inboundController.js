@@ -446,12 +446,12 @@ exports.inboundDownloadXlsxFileLink = (request, res) => {
                         XLSX.writeFile(wb, 'document/InboundData_' + invoice_No + '.xlsx')
                         var downloadLink = "E:/monika/node_project/Skf_Email_Service/document/InboundData_" + invoice_No + ".xlsx ";
                         console.log(downloadLink);
-                        res.send({
-                            "error": 0,
-                            "msg": recordsets.recordset
-
-                        }, 200)
+                       
                     }
+                    res.send({
+                        "error": 0,
+                        "msg": downloadLink 
+                    }, 200)
                 }
             })
 
