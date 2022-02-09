@@ -427,7 +427,6 @@ exports.inboundDownloadXlsxFileLink = (request, res) => {
                     })
                 } else {
                     if (recordsets.recordset != null) {
-                    
                         var data = recordsets.recordset;
                         const ws = XLSX.utils.json_to_sheet(data)
                         const wb = XLSX.utils.book_new()
@@ -437,11 +436,16 @@ exports.inboundDownloadXlsxFileLink = (request, res) => {
                         XLSX.writeFile(wb, 'document/InboundData_' + invoice_No + '.xlsx')
                         var downloadLink = "E:/monika/node_project/Skf_Email_Service/document/InboundData_" + invoice_No + ".xlsx ";
                         console.log(downloadLink);
-                       
+                        var fileName =  'InboundData_' + invoice_No + '.xlsx';
+                        console.log(fileName);
+                        var result = {
+                            'downloadLink' : downloadLink,
+                            'fileName' : fileName
+                        }
                     }
                     res.send({
                         "error": 0,
-                        "msg": recordsets.recordset
+                        "msg": result
                     }, 200)
                 }
             })
@@ -453,75 +457,75 @@ exports.inboundDownloadXlsxFileLink = (request, res) => {
         })
 }
 
-//LR NO
-// spGetInboundWebDetails
-// user_id, inbound_ID
-exports.inboundLRNO = (request, res) => {
+// //LR NO
+// // spGetInboundWebDetails
+// // user_id, inbound_ID
+// exports.inboundLRNO = (request, res) => {
 
-    var conn = new sql.ConnectionPool(config);
-    conn.connect()
-        //successfull connection 
-        .then(function() {
-            var req = new sql.Request(conn);
-            // req.input("user_id", request.query.user_id);
-            // req.input("inbound_ID", request.query.inbound_ID);
+//     var conn = new sql.ConnectionPool(config);
+//     conn.connect()
+//         //successfull connection 
+//         .then(function() {
+//             var req = new sql.Request(conn);
+//             // req.input("user_id", request.query.user_id);
+//             // req.input("inbound_ID", request.query.inbound_ID);
 
-            req.execute("spGetInboundWebDetails", function(err, recordsets, returnValue) {
-                if (err) res.send(err)
-                else
-                if (recordsets.output != null && recordsets.output.error_msg != null && recordsets.output != "") {
-                    res.send(200, {
-                        "error": 1,
-                        "msg": recordsets.output.error_msg
-                    })
-                } else {
-                    res.send({
-                        "error": 0,
-                        "msg": recordsets.recordset
-                    }, 200)
-                }
-            })
+//             req.execute("spGetInboundWebDetails", function(err, recordsets, returnValue) {
+//                 if (err) res.send(err)
+//                 else
+//                 if (recordsets.output != null && recordsets.output.error_msg != null && recordsets.output != "") {
+//                     res.send(200, {
+//                         "error": 1,
+//                         "msg": recordsets.output.error_msg
+//                     })
+//                 } else {
+//                     res.send({
+//                         "error": 0,
+//                         "msg": recordsets.recordset
+//                     }, 200)
+//                 }
+//             })
 
-        })
-        .catch(function(err) {
-            console.log(err);
-            conn.close();
-        })
-}
+//         })
+//         .catch(function(err) {
+//             console.log(err);
+//             conn.close();
+//         })
+// }
 
 
-//From DC
-// spGetInboundWebDetails
-// user_id, inbound_ID
-exports.inboundFromDC = (request, res) => {
+// //From DC
+// // spGetInboundWebDetails
+// // user_id, inbound_ID
+// exports.inboundFromDC = (request, res) => {
 
-    var conn = new sql.ConnectionPool(config);
-    conn.connect()
-        //successfull connection 
-        .then(function() {
-            var req = new sql.Request(conn);
-            // req.input("user_id", request.query.user_id);
-            // req.input("inbound_ID", request.query.inbound_ID);
+//     var conn = new sql.ConnectionPool(config);
+//     conn.connect()
+//         //successfull connection 
+//         .then(function() {
+//             var req = new sql.Request(conn);
+//             // req.input("user_id", request.query.user_id);
+//             // req.input("inbound_ID", request.query.inbound_ID);
 
-            req.execute("spGetInboundWebDetails", function(err, recordsets, returnValue) {
-                if (err) res.send(err)
-                else
-                if (recordsets.output != null && recordsets.output.error_msg != null && recordsets.output != "") {
-                    res.send(200, {
-                        "error": 1,
-                        "msg": recordsets.output.error_msg
-                    })
-                } else {
-                    res.send({
-                        "error": 0,
-                        "msg": recordsets.recordset
-                    }, 200)
-                }
-            })
+//             req.execute("spGetInboundWebDetails", function(err, recordsets, returnValue) {
+//                 if (err) res.send(err)
+//                 else
+//                 if (recordsets.output != null && recordsets.output.error_msg != null && recordsets.output != "") {
+//                     res.send(200, {
+//                         "error": 1,
+//                         "msg": recordsets.output.error_msg
+//                     })
+//                 } else {
+//                     res.send({
+//                         "error": 0,
+//                         "msg": recordsets.recordset
+//                     }, 200)
+//                 }
+//             })
 
-        })
-        .catch(function(err) {
-            console.log(err);
-            conn.close();
-        })
-}
+//         })
+//         .catch(function(err) {
+//             console.log(err);
+//             conn.close();
+//         })
+// }

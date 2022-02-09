@@ -13,8 +13,8 @@ router.get("/inboundWebDetails", inboundController.inboundDetailsWeb);
 router.get("/inboundDelete", inboundController.inboundDelete);
 router.post("/createInbound", inboundController.createInbound);
 router.get("/inboundDownloadXlsxFileLink", inboundController.inboundDownloadXlsxFileLink);
-router.get("/inboundLRNO", inboundController.inboundLRNO);
-router.get("/inboundFromDC", inboundController.inboundFromDC);
+// router.get("/inboundLRNO", inboundController.inboundLRNO);
+// router.get("/inboundFromDC", inboundController.inboundFromDC);
 
 module.exports = router;
 
