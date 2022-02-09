@@ -13,6 +13,8 @@ router.get("/inboundWebDetails", inboundController.inboundDetailsWeb);
 router.get("/inboundDelete", inboundController.inboundDelete);
 router.post("/createInbound", inboundController.createInbound);
 router.get("/inboundDownloadXlsxFileLink", inboundController.inboundDownloadXlsxFileLink);
+router.get("/inboundLRNO", inboundController.inboundLRNO);
+router.get("/inboundFromDC", inboundController.inboundFromDC);
 
 module.exports = router;
 
@@ -27,3 +29,5 @@ module.exports = router;
 
 // (pending)
 // http://localhost:7000/inbound/inboundDownloadXlsxFileLink?User_ID=&invoice_No=004201HNWSB1
+// http://localhost:7000/inbound/inboundLRNO?
+// http://localhost:7000/inbound/inboundFromDC?
