@@ -56,11 +56,12 @@ exports.outboundDetails = (request, res) => {
             console.log("entered");
 
             //  req.input("WareHouseID", request.query.WarehouseID);
-            req.input("user_id ", request.query.user_id);
-            req.input("picking_id", request.query.picking_id);
+            req.input("WarehouseID ", request.query.WarehouseID);
+            req.input("PickerID", request.query.PickerID);
+            req.input("PickingID", request.query.PickingID);
 
             //Execute store produce
-            req.execute("spGetOutboundWebDetails", function(err, recordsets, returnValue) {
+            req.execute("spGetOutboundDetails", function(err, recordsets, returnValue) {
                 if (err) res.send(err);
                 else
                 if (recordsets.output != null && recordsets.output.error_msg != null && recordsets.output.error_msg != "") {
@@ -258,7 +259,7 @@ exports.outboundDetailsWeb = (request, res) => {
                 } else {
                     res.send({
                         "error": 0,
-                        "msg": recordsets.output.error_msg
+                        "msg": recordsets.recordset
                     }, 200)
                 }
             })
